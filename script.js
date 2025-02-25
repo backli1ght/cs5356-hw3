@@ -18,4 +18,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch a new image on button click
     fetchDogBtn.addEventListener("click", fetchDog);
+
+    const body = document.body;
+
+    // Function to change background color based on mouse position
+    function handleMouseMove(event) {
+        const x = event.clientX; // Get mouse X position
+        const y = event.clientY; // Get mouse Y position
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        // Generate RGB colors based on mouse position
+        const red = Math.round((x / width) * 255);
+        const green = Math.round((y / height) * 255);
+        const blue = 150; // Keep blue fixed for a smooth color effect
+
+        // Apply the new background color
+        body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+
+    // Attach event listener to the document
+    document.addEventListener("mousemove", handleMouseMove);
 });
